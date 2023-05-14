@@ -6,6 +6,6 @@
     $jenis_kelamin = $_POST['jenis_kelamin'];
 
     $sql = "INSERT INTO mahasiswa VALUES('$id','$nrp','$nama','$jenis_kelamin')";
-    mysqli_query($conn, $sql);
+    $result = mysqli_query($conn, $sql);
     header('location:index.php?$pesan=input');
 ?>

@@ -11,7 +11,7 @@
 
         <nav class="bg-white px-2 sm:px-4 py-2.5 dark:bg-gray-900 w-full top-0 left-0 border-b border-gray-200">
             <div class="container flex flex-wrap items-center justify-between mx-auto">
-                <a href="https://jojohimawan.github.io/" class="flex items-center">
+                <a href="./index.php" class="flex items-center">
                     <span class="self-center text-xl font-semibold whitespace-nowrap">CRUD PHP App</span>
                 </a>
                 <div class="flex md:order-2">
@@ -43,11 +43,11 @@
 
                 <?php
                     require_once "conn.php";
-                    $sql = "SELECT * FROM mahasiswa";
+                    $sql = "SELECT * FROM mahasiswa ORDER BY nrp";
                     if($result = mysqli_query($conn, $sql)) {
                         if(mysqli_num_rows($result) > 0) {
                             echo'<table class="w-full text-sm text-left text-gray-500">';
-                            echo'<thead class="text-xs text-gray-700 uppercase bg-gray-50">';
+                            echo'<thead class="text-xs text-white uppercase bg-blue-700">';
                                 echo'<tr>';
                                     echo'<th scope="col" class="px-6 py-3">
                                         ID
@@ -69,21 +69,21 @@
                             echo'<tbody>';
                                 while($row = mysqli_fetch_array($result)) {
                                     echo'<tr class="bg-white border-b">';
-                                    echo'<th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap" name="id">'
+                                    echo'<th scope="row" class="px-6 py-4 font-medium whitespace-nowrap" name="id">'
                                         .$row['id'].
                                     '</th>';
-                                    echo'<td class="px-6 py-4">'
+                                    echo'<td class="px-6 py-4 text-gray-900">'
                                         .$row['nrp'].
                                     '</td>';
-                                    echo'<td class="px-6 py-4">'
+                                    echo'<td class="px-6 py-4 text-gray-900">'
                                         .$row['nama'].
                                     '</td>';
-                                    echo'<td class="px-6 py-4">'
+                                    echo'<td class="px-6 py-4 text-gray-900">'
                                         .$row['jenis_kelamin'].
                                     '</td>';
                                     echo'<td class="flex gap-x-2 px-6 py-4" name="id">
-                                    <a href="./update.php?id='.$row['id'].'" class="font-medium text-yellow-500 dark:text-blue-500 hover:underline">Update</a>
-                                    <a href="./delete.php?id='.$row['id'].'" class="font-medium text-red-500 dark:text-blue-500 hover:underline">Delete</a>
+                                    <a href="./update.php?id='.$row['id'].'" class="text-white bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center my-1">Update</a>
+                                    <a href="./delete.php?id='.$row['id'].'" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center my-1">Delete</a>
                                     </td>';
                                 echo'</tr>';
                                 }
